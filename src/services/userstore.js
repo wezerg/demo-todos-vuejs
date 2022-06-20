@@ -32,12 +32,12 @@ async function connect(email, password){
 }
 async function autoConnect(){
     if (localStorage.getItem('cours-token')) {
-        const response = await axios.post('http://localhost:3001/moncompte').then(res => res).catch(err => err);
+        const response = await axios.post('http://localhost:3001/loginToken').then(res => res).catch(err => err);
         if (response.status !== 200) {
             localStorage.removeItem('cours-token');
             return null;
         }
-        user.value = response.data.user;
+        user.value = {"id": response.data.user.id, "username": response.data.user.username, "email": response.data.user.email};
     }
 }
 function disconnect(){
