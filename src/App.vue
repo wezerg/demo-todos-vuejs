@@ -14,4 +14,7 @@ import { useUserStore } from './services/userstore';
     </div>
 </template>
 <style>
+.error{
+    color:red;
+}
 </style>

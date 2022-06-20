@@ -7,7 +7,9 @@ import { useRouter } from 'vue-router';
     const username = ref('');
     const email = ref('');
     const password = ref('');
+    const confirmPass = ref('');
     const errorSaisie = ref('');
+    const errorConfirm = ref('');
 
     const {register} = useUserStore();
     const router = useRouter();
@@ -19,6 +21,13 @@ import { useRouter } from 'vue-router';
         });
         const payload = {username: username.value, email: email.value, password: password.value};
         const {value, error} = scheme.validate(payload);
+        if(password.value !== confirmPass.value){
+            errorConfirm.value = "Le mot de passe n'est pas identique";
+            return;
+        }
+        else{
+            errorConfirm.value = "";
+        }
         if (error) {
             errorSaisie.value = error.message;
             return;
@@ -44,13 +53,16 @@ import { useRouter } from 'vue-router';
             <label for="email">Email</label>
             <input type="text" id="email" v-model="email">
             <label for="password">Mot de passe</label>
-            <input type="text" id="password" v-model="password">
+            <input type="password" id="password" v-model="password">
+            <label for="confirmPass">Confirmez votre mot de passe</label>
+            <input type="password" id="confirmPass" v-model="confirmPass">
+            <p class="error" @click="errorConfirm = ''">{{errorConfirm}}</p>
             <button type="submit">S'inscrire</button>
-            <p>{{errorSaisie}}</p>
+            <p class="error" @click="errorSaisie = ''">{{errorSaisie}}</p>
         </form>
     </div>
 </template>
-<style>
+<style scoped>
 label{
     display: block;
 }

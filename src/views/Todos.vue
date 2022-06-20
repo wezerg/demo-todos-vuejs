@@ -32,7 +32,7 @@ import { useTaskStore } from '@/services/taskstore';
             <label for="description">Description</label>
             <input type="text" id="description" v-model="description">
             <button type="submit">Enregistrer nouvelle tâche</button>
-            <p>{{errorSaisie}}</p>
+            <p class="error" @click="errorSaisie = ''">{{errorSaisie}}</p>
         </form>
         <ul v-if="tasks && tasks.length > 0">
             <li v-for="obj in tasks" :key="obj._id">
