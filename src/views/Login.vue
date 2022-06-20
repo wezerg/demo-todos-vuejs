@@ -43,7 +43,12 @@ import { useRouter } from 'vue-router';
             <label for="password">Mot de passe</label>
             <input type="text" id="password" v-model="password">
             <button type="submit">S'inscrire</button>
-            <p>{{errorSaisie}}</p>
+            <p class="error" @click="errorSaisie = ''">{{errorSaisie}}</p>
         </form>
     </div>
 </template>
+<style scoped>
+label{
+    display: block;
+}
+</style>
