@@ -23,7 +23,8 @@ async function connect(email, password){
             return null;
         }
         localStorage.setItem('cours-token', response.headers['x-auth-token']);
-        return user.value = response.data.user;
+        user.value = {"id": response.data.user.id, "username": response.data.user.username, "email": response.data.user.email};
+        return user.value;
     }
     else{
         return null;
