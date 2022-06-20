@@ -2,7 +2,7 @@
 import { onMounted, ref } from 'vue';
 import { useTaskStore } from '@/services/taskstore';
 
-    const {tasks, getAll, addOne} = useTaskStore();
+    const {tasks, getAll, addOne, deleteOne} = useTaskStore();
     const description = ref('');
     const errorSaisie = ref('');
 
@@ -12,13 +12,17 @@ import { useTaskStore } from '@/services/taskstore';
 
     async function addOneTask(){
         const response = await addOne(description.value);
-        console.log(response)
         if (!response) {
             errorSaisie.value = "Erreur lors de la création de votre nouvelle tâche";
         }
         else{
             errorSaisie.value = "";
         }
+    }
+
+    async function deleteOneTask(id){
+        console.log(id)
+        const response = await deleteOne(id);
     }
 
 </script>
@@ -31,8 +35,9 @@ import { useTaskStore } from '@/services/taskstore';
             <p>{{errorSaisie}}</p>
         </form>
         <ul v-if="tasks && tasks.length > 0">
-            <li v-for="obj in tasks" :key="obj.id">
+            <li v-for="obj in tasks" :key="obj._id">
                 <p>{{obj.description}}</p>
+                <button @click="deleteOneTask(obj._id)">Supprimer tâche</button>
             </li>
         </ul>
     </div>
