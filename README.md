@@ -1,48 +1,9 @@
-# vueeval
+# Application VueJS de gestion de Todos
 
-This template should help get you started developing with Vue 3 in Vite.
+Application web front-end en VueJS pour la gestion de "todos". L'application possède aussi un système d'authentification. L'api associé pour être trouvée [ici](https://github.com/wezerg/demo-backend-express "backend").
 
-## Recommended IDE Setup
-
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
-
-## Customize configuration
-
-See [Vite Configuration Reference](https://vitejs.dev/config/).
-
-## Project Setup
-
-```sh
-npm install
-```
-
-### Compile and Hot-Reload for Development
-
-```sh
-npm run dev
-```
-
-### Compile and Minify for Production
-
-```sh
-npm run build
-```
-
-### Run Unit Tests with [Vitest](https://vitest.dev/)
-
-```sh
-npm run test:unit
-```
-
-### Run End-to-End Tests with [Cypress](https://www.cypress.io/)
-
-```sh
-npm run build
-npm run test:e2e # or `npm run test:e2e:ci` for headless testing
-```
-
-### Lint with [ESLint](https://eslint.org/)
-
-```sh
-npm run lint
-```
+## Lancement du projet
+- Se placer à la racine du projet
+- Exécuter la commande ```npm install``` pour s'assurer d'avoir les librairies nécessaires.
+- Exécuter la commande ```npm run dev``` pour lancer l'application en mode développement.
+- OU éxécuter la commande ```npm run build``` pour créer le dossier *dist* pour la production.
